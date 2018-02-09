@@ -1,0 +1,22 @@
+sudo: false
+language: python
+env:
+  - ASSIGNMENT=assignment6
+install:
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - pip install -q nose2
+  - "curl -H \"Authorization: token ${GH_TOKEN}\" -H 'Accept: application/vnd.github.v3.raw' -O --location \"https://api.github.com/repos/PGE383-HPC/${ASSIGNMENT}/contents/test.py\""
+before_script:
+  - rm -f $HOME/.bashrc
+  - source bash_profile
+script:
+  - nose2 test.test_conda_in_path
+  - source bashrc 
+  - alias lla > lla.txt
+  - nose2
