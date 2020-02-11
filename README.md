@@ -5,7 +5,7 @@
 1. Clone the repository with the following command 
 
    ```bash
-   git clone https://github.com/PGE383-HPC-Fall2018/pge383_assignment6-[your_github_username].git $HOME/.dotfiles
+   git clone https://github.com/PGE383-HPC-Students/pge383-assignment6-[your_github_username].git $HOME/.dotfiles
    ```
 
    Where `[your_github_username]` is replaced with your actual Github username.  This will clone the repository into a hidden directory in `$HOME`.
